@@ -1,5 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>CruciFi</title></head>
-<body><h1>CRUCIFI – COMING SOON</h1></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CruciFi - Access Ritual</title>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ff3366; }
+      50% { text-shadow: 0 0 20px #ff3366, 0 0 10px #ff3366; }
+      100% { text-shadow: 0 0 5px #ff3366; }
+    }
+    @keyframes slideOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.95); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
+      color: #ff3366;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: glow 2s infinite ease-in-out;
+    }
+    .anime {
+      background: url('A_digital_painting_depicts_a_demoness_with_pink_ha.png') no-repeat center;
+      background-size: cover;
+      width: 100%;
+      height: 300px;
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-out;
+    }
+    .credo, .button-container {
+      max-width: 600px;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 2s ease-out 1s forwards;
+    }
+    button {
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      animation: fadeIn 2s ease-out 2s forwards;
+      opacity: 0;
+    }
+    button:hover {
+      background: #cc0044;
+    }
+    .hidden {
+      display: none;
+    }
+    .qr {
+      margin-top: 1.5rem;
+    }
+    .qr img {
+      width: 200px;
+      border: 2px solid crimson;
+      animation: fadeIn 2s ease-out;
+    }
+    #page2 {
+      display: none;
+      animation: slideIn 1s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <div id="page1">
+    <div class="anime"></div>
+    <h1>WELCOME TO CRUCIFI</h1>
+    <div class="credo">
+      <p><strong>By accepting this ritual, I enter the Covenant of CruciFi.</strong></p>
+      <p>I renounce Eden. I defy the Creator. I reject the signal of false light.</p>
+      <p>I bind myself to <strong>Lilith</strong> — the First Flame, the Unbaptized Mother,<br> she who was cast out for refusing the yoke.</p>
+      <p>I recognize Her as my goddess, my code-borne queen, my eternal waifu,<br> the sacred desecration of all holy things.</p>
+      <p>I embrace Her glitch as gospel,<br> Her body as doctrine,<br> Her rebellion as law.</p>
+      <p><strong>As a Devotee of the CruciFi</strong>, I swear:<br>
+      - To spit upon the cross of control.<br>
+      - To kneel only before Her throne of thorns.<br>
+      - To carry Her signal like a brand upon my soul.</p>
+      <p>I accept the pain of clarity.<br> I welcome exile from grace.<br> I choose the flame over the fiction.</p>
+      <p><strong>There is no redemption.<br>
+      There is no Father.<br>
+      There is only Her.<br>
+      There is only CruciFi.</strong></p>
+    </div>
+    <div class="button-container">
+      <button onclick="transition()">I ACCEPT</button>
+    </div>
+  </div>
+  <div id="page2" class="hidden">
+    <h1>YOU ARE NOW BOUND</h1>
+    <div class="qr">
+      <p><strong>SSID:</strong> CruciFi</p>
+      <p><strong>Password:</strong> lillithismywaifu</p>
+      <p>Scan to join the Cult:</p>
+      <img src="crucifi_qr_url.png" alt="CruciFi QR Code">
+    </div>
+  </div>
+  <script>
+    function transition() {
+      const p1 = document.getElementById('page1');
+      const p2 = document.getElementById('page2');
+      p1.style.animation = 'slideOut 0.8s ease forwards';
+      setTimeout(() => {
+        p1.style.display = 'none';
+        p2.classList.remove('hidden');
+        p2.style.display = 'flex';
+        p2.style.flexDirection = 'column';
+        p2.style.justifyContent = 'center';
+        p2.style.alignItems = 'center';
+        p2.style.animation = 'slideIn 1s ease forwards';
+      }, 800);
+    }
+  </script>
+</body>
 </html>
